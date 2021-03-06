@@ -1,0 +1,34 @@
+.container section {
+  flex: 1;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6.25rem;
+  align-content: center;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+
+.profile-container>img {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+}
+
+.profile-container>div {
+  margin-left: 1.5rem;
+}
+
+.profile-container>div>strong {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $title
+}
+
+.profile-container>p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
