@@ -8,7 +8,7 @@ export default function Profile() {
         <p>
           {" "}
           <strong>^ </strong>
-          Level 1
+          Level 0
         </p>
       </div>
     </div>
