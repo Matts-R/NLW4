@@ -132,27 +132,6 @@ a {
   font-size: 1.5rem;
 }
 
-.countdown-button {
-  width: 100%;
-  height: 5rem;
-  margin-top: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0px;
-  border-radius: 5px;
-  background-color: #5965E0;
-  color: #fff;
-  font-size: 1.25rem;
-  font-weight: 600;
-  transition: background-color 0.2s ease-in-out, font-size 0.5s ease-in-out;
-}
-
-.countdown-button:hover {
-  background-color: #4953B8;
-  font-size: 1.4rem;
-}
-
 .countdown-container {
   display: flex;
   align-items: center;
@@ -188,4 +167,46 @@ a {
 .countdown-container > span {
   font-size: 6.25rem;
   margin: 0 0.5rem;
+}
+
+.countdown-button, .countdown-button-active, .countdown-button-disable {
+  width: 100%;
+  height: 5rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0px;
+  border-radius: 5px;
+  background-color: #5965E0;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out, font-size 0.5s ease-in-out;
+}
+
+.countdown-button:hover, .countdown-button-active:hover, .countdown-button-disable:hover {
+  background-color: #4953B8;
+  font-size: 1.4rem;
+}
+
+.countdown-button-active {
+  background: #fff;
+  color: #2E484D;
+}
+
+.countdown-button-active:hover {
+  background-color: #E83F5B;
+  color: #fff;
+}
+
+.countdown-button-disable {
+  background: #fff;
+  color: #E83F5B;
+  cursor: not-allowed;
+}
+
+.countdown-button-disable:hover {
+  background-color: #fff;
+  color: #E83F5B;
 }
