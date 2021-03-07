@@ -6,8 +6,7 @@ export default function Profile() {
         <strong>Matheus Henrique</strong>
 
         <p>
-          {" "}
-          <strong>^ </strong>
+          <img src="/Icons/levelUp.png" alt="level up icon" />
           Level 0
         </p>
       </div>

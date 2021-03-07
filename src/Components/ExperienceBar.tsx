@@ -1,4 +1,4 @@
-export function ExperienceBar() {
+export default function ExperienceBar() {
   return (
     <header className="experience-bar">
       <span>0 exp</span>
