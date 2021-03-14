@@ -2,7 +2,9 @@ import { useContext } from "react";
 import { ChallengesContext } from "../context/ChallengesContext";
 
 export default function ChallengeBox() {
-  const { activeChallenge, resetChallenge } = useContext(ChallengesContext);
+  const { activeChallenge, resetChallenge, completeChallenge } = useContext(
+    ChallengesContext
+  );
 
   return (
     <div className="challenge-box-container">
@@ -17,7 +19,12 @@ export default function ChallengeBox() {
           </main>
 
           <footer>
-            <button type="button" role="button" className="button-completed">
+            <button
+              type="button"
+              role="button"
+              className="button-completed"
+              onClick={completeChallenge}
+            >
               Completado
             </button>
             <button
