@@ -13,7 +13,7 @@ interface CountdownContextData {
   hasFinished: boolean;
   isActive: boolean;
   startCountdown: () => void;
-  resetCountDown: () => void;
+  resetCountdown: () => void;
 }
 
 interface CountdownProviderProps {
@@ -38,9 +38,10 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     setIsActive(true);
   }
 
-  function resetCountDown() {
+  function resetCountdown() {
     clearTimeout(countdownTimeOut);
     setIsActive(false);
+    setHasFinished(false);
     setTime(0.1 * 60);
   }
 
@@ -64,7 +65,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
         hasFinished,
         isActive,
         startCountdown,
-        resetCountDown,
+        resetCountdown,
       }}
     >
       {children}

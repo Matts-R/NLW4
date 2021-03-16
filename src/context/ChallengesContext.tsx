@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import challenges from "../../MOCK_DATA.json"; //Só para testes
 
 interface Challenge {
@@ -34,6 +34,10 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
 
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
+  useEffect(() => {
+    Notification.requestPermission();
+  }, []);
+
   function levelUp(): void {
     setLevel(level + 1);
   }
@@ -43,6 +47,16 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
     const challenge = challenges[challengeIndex];
 
     setActiveChallenge(challenge);
+
+    sendNewChallengeAlert(challenge.amount);
+  }
+
+  function sendNewChallengeAlert(quantityPoints): void {
+    if (Notification.permission === "granted") {
+      new Notification("Novo desafio !!", {
+        body: `Valendo ${quantityPoints} pontos`,
+      });
+    }
   }
 
   function resetChallenge(): void {
