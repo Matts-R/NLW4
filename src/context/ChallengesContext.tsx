@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { createContext, ReactNode, useEffect, useState } from "react";
 import challenges from "../../MOCK_DATA.json"; //Só para testes
 
@@ -38,20 +39,28 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
     Notification.requestPermission();
   }, []);
 
+  useEffect(() => {
+    Cookies.set("level", String(level));
+    Cookies.set("currentExperience", String(currentExperience));
+    Cookies.set("challengesCompleted", String(challengesCompleted));
+  }, [level, currentExperience, challengesCompleted]);
+
   function levelUp(): void {
     setLevel(level + 1);
   }
 
   function startNewChallenge(): void {
-    const challengeIndex = Math.floor(Math.random() * challenges.length);
-    const challenge = challenges[challengeIndex];
+    const challengeIndex: number = Math.floor(
+      Math.random() * challenges.length
+    );
+    const challenge: Challenge = challenges[challengeIndex];
 
     setActiveChallenge(challenge);
 
     sendNewChallengeAlert(challenge.amount);
   }
 
-  function sendNewChallengeAlert(quantityPoints): void {
+  function sendNewChallengeAlert(quantityPoints: Number): void {
     if (Notification.permission === "granted") {
       new Notification("Novo desafio !!", {
         body: `Valendo ${quantityPoints} pontos`,
