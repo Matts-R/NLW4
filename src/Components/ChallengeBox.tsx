@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ChallengesContext } from "../context/ChallengesContext";
-import { CountdownContext } from "../context/CountdownContex";
+import { CountdownContext } from "../context/CountdownContext";
 
 export default function ChallengeBox() {
   const { activeChallenge, resetChallenge, completeChallenge } = useContext(

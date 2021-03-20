@@ -4,7 +4,7 @@ import CompletedChallenges from "../Components/CompletedChallenges";
 import Countdown from "../Components/Countdown";
 import ExperienceBar from "../Components/ExperienceBar";
 import Profile from "../Components/Profile";
-import { CountdownProvider } from "../context/CountdownContex";
+import { CountdownProvider } from "../context/CountdownContext";
 
 export default function Home() {
   return (
