@@ -5,11 +5,12 @@ import CompletedChallenges from "../Components/CompletedChallenges";
 import Countdown from "../Components/Countdown";
 import ExperienceBar from "../Components/ExperienceBar";
 import Profile from "../Components/Profile";
+import { ChallengesProvider } from "../context/ChallengesContext";
 import { CountdownProvider } from "../context/CountdownContext";
 
 interface User {
   level: number;
-  currentExeperience: number;
+  currentExperience: number;
   challengesCompleted: number;
 }
 
@@ -18,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const user: User = {
     level: Number(level),
-    currentExeperience: Number(currentExperience),
+    currentExperience: Number(currentExperience),
     challengesCompleted: Number(challengesCompleted),
   };
 
@@ -29,23 +30,29 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 export default function Home(props: User) {
   return (
-    <div className="container">
-      <title>Move.it - Home</title>
+    <ChallengesProvider
+      level={props.level}
+      currentExperience={props.currentExperience}
+      challengesCompleted={props.challengesCompleted}
+    >
+      <div className="container">
+        <title>Move.it - Home</title>
 
-      <ExperienceBar />
+        <ExperienceBar />
 
-      <CountdownProvider>
-        <section>
-          <div>
-            <Profile></Profile>
-            <CompletedChallenges></CompletedChallenges>
-            <Countdown></Countdown>
-          </div>
-          <div>
-            <ChallengeBox></ChallengeBox>
-          </div>
-        </section>
-      </CountdownProvider>
-    </div>
+        <CountdownProvider>
+          <section>
+            <div>
+              <Profile></Profile>
+              <CompletedChallenges></CompletedChallenges>
+              <Countdown></Countdown>
+            </div>
+            <div>
+              <ChallengeBox></ChallengeBox>
+            </div>
+          </section>
+        </CountdownProvider>
+      </div>
+    </ChallengesProvider>
   );
 }
